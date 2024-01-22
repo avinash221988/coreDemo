@@ -39,3 +39,13 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t ${{ inputs.imageName }}:latest .
+
+  Trigger-Build-in-Tenant2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Workflow in Another Repo
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/avinash221988/tenant2/actions/workflows/workflow2.yaml/dispatches" \
+            -d '{"ref":"main"}'
