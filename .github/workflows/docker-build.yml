@@ -13,7 +13,7 @@ jobs:
     steps:
      - name: Build Go Application
        run: |
-          echo "GITHUB_ACTION_PATH: ${{ GITHUB_ACTION_PATH }}"
+          echo "GITHUB_ACTION_PATH: ${{ env.GITHUB_ACTION_PATH }}"
            
   prerequisites:
     runs-on: ubuntu-latest
