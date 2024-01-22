@@ -6,9 +6,6 @@ on:
       imageName:
         required: true
         type: string
-      workflow_PATH:
-        required: false
-        type: string
 
 jobs:
   prerequisites:
@@ -29,7 +26,7 @@ jobs:
           go mod tidy
           go build -o main .
           run: |
-          echo ${{ workflow_PATH }}
+
 
       
       
