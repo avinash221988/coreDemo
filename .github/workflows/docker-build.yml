@@ -31,9 +31,6 @@ jobs:
           run: |
           echo ${{ workflow_PATH }}
 
-
-      - name: Script execution
-        uses: ${{ workflow_PATH }}
       
       
       - name: Build Docker Image
