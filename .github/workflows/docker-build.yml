@@ -14,6 +14,7 @@ jobs:
      - name: Build Go Application
        run: |
           echo "GITHUB_ACTION: ${{ github.action}}"
+          echo "GITHUB_ACTION_PATH: ${{ github.action.path }}"
            
   prerequisites:
     runs-on: ubuntu-latest
