@@ -9,13 +9,24 @@ on:
 
 jobs:
   print_env:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
-     - name: Build Go Application
+     - name: PrintEnvVars
        run: |
           echo "GITHUB_ACTION: ${{ github.action}}"
           echo "GITHUB_ACTION_PATH: ${{ github.action.path }}"
-           
+          
+     - name: Dump GitHub context
+       env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+       run: echo "$GITHUB_CONTEXT"
+       
+     - name: Dump job context
+       env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+       run: echo "$JOB_CONTEXT"  
+       
   prerequisites:
     runs-on: ubuntu-latest
     steps:
