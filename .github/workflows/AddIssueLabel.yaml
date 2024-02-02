@@ -1,4 +1,3 @@
-
 name: Add Labels to New Issue
 
 on:
@@ -11,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Add Labels
-        uses: actions/github-script@v6
+      - name: Set up Go
+        uses: actions/setup-go@v4
         with:
-          script: |
-            const issue = context.payload.issue;
-            const labelsToAdd = ["defuzz", "sprint"];
+          go-version: '1.17'
+          
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-            await github.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue.number,
-              labels: labelsToAdd
-            });
+      - name: Add Labels
+        run: |
+          go run .github/scripts/add-labels.go
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
