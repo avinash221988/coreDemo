@@ -13,8 +13,6 @@ jobs:
   print_env:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
-    env:
-      TEST_VAR: ${{ inputs.TEST_VAR }}
 
     steps:
      - name: PrintEnvVars
