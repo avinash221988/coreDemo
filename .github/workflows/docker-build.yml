@@ -6,6 +6,9 @@ on:
       imageName:
         required: true
         type: string
+      TEST_VAR:
+        required: false
+        type: string
 
 jobs:
   print_env:
