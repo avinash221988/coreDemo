@@ -9,10 +9,6 @@ on:
       TEST_VAR:
         required: false
         type: string
-env:
-  TEST_SECRET: ${{ secrets.TEST_VAR }}
-  TEST_VAR2: ${{ vars.TEST_VAR2 }}
-  
 jobs:
   print_env:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -20,6 +16,7 @@ jobs:
     env:
       TEST_SECRET: ${{ secrets.TEST_VAR }}
       TEST_VAR: ${{ inputs.TEST_VAR }}
+      TEST_VAR2: ${{ vars.TEST_VAR2 }}
     steps:
      - name: PrintEnvVars
        run: |
