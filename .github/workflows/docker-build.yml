@@ -11,7 +11,7 @@ on:
         type: string
 env:
   TEST_SECRET: ${{ secrets.TEST_VAR }}
-  TEST_VAR: ${{ vars.TEST_VAR }}
+  TEST_VAR2: ${{ vars.TEST_VAR2 }}
   
 jobs:
   print_env:
@@ -27,7 +27,8 @@ jobs:
           echo "GITHUB_ACTION_PATH: ${{ github.action.path }}"
           echo "TEST_VAR: $TEST_VAR"
           echo "TEST_SECRET: $TEST_SECRET"
-         
+          echo "TEST_VAR2: $TEST_VAR2"
+          
      - name: Dump GitHub context
        env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
