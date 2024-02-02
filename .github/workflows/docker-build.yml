@@ -16,8 +16,8 @@ jobs:
        run: |
           echo "GITHUB_ACTION: ${{ github.action}}"
           echo "GITHUB_ACTION_PATH: ${{ github.action.path }}"
-          echo "TEST_SECRET: ${{ TEST_SECRET }}"
-          echo "TEST_VAR: ${{ TEST_VAR }}"
+          echo "TEST_SECRET: ${{ vars.TEST_SECRET }}"
+          echo "TEST_VAR: ${{ vars.TEST_VAR }}"
           
      - name: Dump GitHub context
        env:
