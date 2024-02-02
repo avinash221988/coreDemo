@@ -11,14 +11,17 @@ jobs:
   print_env:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
+    env:
+      TEST_SECRET: ${{ secrets.TEST_SECRET }}
+      TEST_VAR: ${{ vars.TEST_VAR }}
     steps:
      - name: PrintEnvVars
        run: |
           echo "GITHUB_ACTION: ${{ github.action}}"
           echo "GITHUB_ACTION_PATH: ${{ github.action.path }}"
-          echo "TEST_SECRET: ${{ vars.TEST_SECRET }}"
-          echo "TEST_VAR: ${{ vars.TEST_VAR }}"
-          
+          echo "TEST_SECRET: ${{ TEST_SECRET }}"
+          echo "TEST_VAR: ${{ TEST_VAR }}"
+         
      - name: Dump GitHub context
        env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
