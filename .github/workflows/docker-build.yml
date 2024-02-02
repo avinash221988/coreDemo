@@ -26,12 +26,18 @@ jobs:
      - name: Dump GitHub context
        env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-       run: echo "$GITHUB_CONTEXT"
+       run: echo "$GITHUB_CONTEXT" >> dump.txt
        
      - name: Dump job context
        env:
           JOB_CONTEXT: ${{ toJson(job) }}
-       run: echo "$JOB_CONTEXT"  
+       run: echo "$JOB_CONTEXT"  >> dump.txt
+
+     - name: Archive artifacts
+       uses: actions/upload-artifact@v4
+       with:
+        name: Context variables
+        path: dump.txt
        
   prerequisites:
     runs-on: ubuntu-latest
@@ -51,8 +57,8 @@ jobs:
           go mod tidy
           go build -o main .
               
-      
       - name: Build Docker Image
         run: |
           docker build -t ${{ inputs.imageName }}:latest .
+
 
