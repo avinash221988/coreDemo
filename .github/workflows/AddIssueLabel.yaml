@@ -1,0 +1,26 @@
+
+name: Add Labels to New Issue
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add_labels:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add Labels
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const labelsToAdd = ["defuzz", "sprint"];
+
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: labelsToAdd
+            });
