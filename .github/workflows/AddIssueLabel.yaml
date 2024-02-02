@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '1.17'
-          
       - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Add Labels
-        run: |
-          go run .github/scripts/add-labels.go
+        uses: octokit/request-action@v2
+        with:
+          route: POST /repos/:owner/:repo/issues/:issue_number/labels
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.repository }}
+          issue_number: ${{ github.event.issue.number }}
+          labels: '["bug", "enhancement"]'  # Add your desired labels here
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
