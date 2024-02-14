@@ -1,8 +1,5 @@
 name: Prerequisites
 on:
-  workflow_run:
-    workflows: [docker-build.yml]
-    types: [completed]
   workflow_call:
     inputs:
       imageName:
