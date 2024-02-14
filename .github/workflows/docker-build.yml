@@ -42,6 +42,6 @@ jobs:
   Trigger_prerequisites_WF:
     uses: avinash221988/coreDemo/.github/workflows/prerequisites.yaml@main
     with:
-      imageName: $imageName
+      imageName: ${{ inputs.imageName }}
 
 
