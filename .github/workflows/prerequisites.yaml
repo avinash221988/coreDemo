@@ -5,6 +5,9 @@ on:
       imageName:
         required: true
         type: string
+  workflow_run:
+    workflows: [DockerBuild]
+    types: [completed]
 jobs:
   prerequisites:
     runs-on: ubuntu-latest
