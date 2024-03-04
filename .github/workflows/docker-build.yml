@@ -6,6 +6,8 @@ on:
       TEST_VAR:
         required: false
         type: string
+  workflow_dispatch:
+  
 jobs:
   print_env:
     if: ${{ github.ref == 'refs/heads/main' }}
