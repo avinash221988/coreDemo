@@ -1,7 +1,7 @@
 name: Prerequisites
 on:
   workflow_run:
-    workflows: [CallCoreDemo]
+    workflows: [DockerBuild]
     types: [completed]
 jobs:
   print_conclusion:
