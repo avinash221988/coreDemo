@@ -1,7 +1,7 @@
 name: Prerequisites
 on:
   workflow_run:
-    workflows: [TriggerWF]
+    workflows: [CallCoreDemo]
     types: [completed]
 jobs:
   print_conclusion:
