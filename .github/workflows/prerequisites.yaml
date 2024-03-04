@@ -1,10 +1,5 @@
 name: Prerequisites
 on:
-  workflow_call:
-    inputs:
-      imageName:
-        required: true
-        type: string
   workflow_run:
     workflows: [DockerBuild]
     types: [completed]
@@ -37,7 +32,7 @@ jobs:
               
       - name: Build Docker Image
         run: |
-          docker build -t ${{ inputs.imageName }}:latest .
+          docker build -t someImage:latest .
 
   on-failure:
     runs-on: ubuntu-latest
