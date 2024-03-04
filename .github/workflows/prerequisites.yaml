@@ -1,7 +1,7 @@
 name: Prerequisites
 on:
   workflow_run:
-    workflows: [DockerBuild]
+    workflows: [TriggerWF]
     types: [completed]
 jobs:
   print_conclusion:
