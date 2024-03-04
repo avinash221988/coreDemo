@@ -1,0 +1,12 @@
+name: Call DockerBuild
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+    types: [ opened, synchronize]
+jobs:
+  Trigger-Build-in-CoreDemo:
+    uses: ./.github/workflows/docker-build.yml@main
+    with:
+      TEST_VAR: ${{ vars.TEST_VAR }}
