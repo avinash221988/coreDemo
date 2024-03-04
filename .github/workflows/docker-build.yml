@@ -3,9 +3,6 @@ name: DockerBuild
 on:
   workflow_call:
     inputs:
-      imageName:
-        required: true
-        type: string
       TEST_VAR:
         required: false
         type: string
