@@ -39,9 +39,4 @@ jobs:
         name: Context variables
         path: dump.txt
        
-  Trigger_prerequisites_WF:
-    uses: avinash221988/coreDemo/.github/workflows/prerequisites.yaml@main
-    with:
-      imageName: ${{ inputs.imageName }}
-
 
