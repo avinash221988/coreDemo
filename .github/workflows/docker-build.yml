@@ -22,6 +22,11 @@ jobs:
           echo "TEST_VAR2: $TEST_VAR2"
           echo "My API_KEY is ${{secrets.TEST_SECRET}}"
           
+     - name: Set up mutex
+       uses: ben-z/gh-action-mutex@v1.0.0-alpha.9
+     - run: |
+        echo "I am protected!"
+          sleep 5     
      - name: Dump GitHub context
        env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
