@@ -6,9 +6,9 @@ on:
       TEST_VAR:
         required: false
         type: string
+    secrets:
       GITHUB_TOKEN:
         required: false
-        type: string
   workflow_dispatch:
   
 jobs:
@@ -28,7 +28,7 @@ jobs:
      - name: Set up mutex
        uses: ben-z/gh-action-mutex@v1.0.0-alpha.9
        with:
-          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      - run: |
         echo "I am protected!"
           sleep 5     
