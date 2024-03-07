@@ -7,7 +7,7 @@ on:
         required: false
         type: string
     secrets:
-      GITHUB_TOKEN:
+      GH_TOKEN:
         required: false
   workflow_dispatch:
   
@@ -28,7 +28,7 @@ jobs:
      - name: Set up mutex
        uses: ben-z/gh-action-mutex@v1.0.0-alpha.9
        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      - run: |
         echo "I am protected!"
           sleep 5     
