@@ -39,7 +39,7 @@ jobs:
      - name: Archive artifacts
        uses: actions/download-artifact@v4
        with:
-        name: coreDemoArts
+        name: tenant2_arts
         path: ${{ inputs.PATHS }}
 
      - name: Check contents
