@@ -36,7 +36,7 @@ jobs:
      - name: Check contents
        run: |
           ls -la $GITHUB_WORKSPACE
-          cat $GITHUB_WORKSPACE/tmp/GHContext.txt
-          cat $GITHUB_WORKSPACE/tmp/job/jobdump.txt
-          cat $GITHUB_WORKSPACE/tmp/archive/path.txt
+          cat $GITHUB_WORKSPACE/WF_Files/GHContext.txt
+          cat $GITHUB_WORKSPACE/WF_Files/job/jobdump.txt
+          cat $GITHUB_WORKSPACE/WF_Files/archive/path.txt
        
