@@ -6,6 +6,9 @@ on:
       TEST_VAR:
         required: false
         type: string
+      PATHS:
+        required: false
+        type: string
     secrets:
       GH_TOKEN:
         required: false
@@ -46,6 +49,6 @@ jobs:
        uses: actions/upload-artifact@v4
        with:
         name: Context variables
-        path: dump.txt
+        path: ${{ inputs.PATHS }}
        
 
