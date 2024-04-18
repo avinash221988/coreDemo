@@ -40,11 +40,10 @@ jobs:
        uses: actions/download-artifact@v4
        with:
         name: tenant2_arts
-        path: ${{ inputs.PATHS }}
 
      - name: Check contents
        run: |
-          cat /tmp/GHContext.txt
-          cat /tmp/job/jobdump.txt
-          cat /tmp/archive/path.txt
+          cat $GITHUB_WORKSPACE/tmp/GHContext.txt
+          cat $GITHUB_WORKSPACE/tmp/job/jobdump.txt
+          cat $GITHUB_WORKSPACE/tmp/archive/path.txt
        
