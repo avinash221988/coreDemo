@@ -38,7 +38,9 @@ jobs:
           set -x
           pwd
           ls -la $GITHUB_WORKSPACE
-          IFS=$'\n' read -d '' -r -a paths <<< "${{ inputs.PATHS }}"
+          while IFS= read -r line; do
+           paths+=("$line")
+          done <<< "${{ inputs.PATHS }}"
           for path in "${paths[@]}"
           do
             cat "tenant2_arts/$path"
