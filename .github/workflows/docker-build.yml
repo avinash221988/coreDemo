@@ -37,9 +37,14 @@ jobs:
           sleep 5 
        
      - name: Archive artifacts
-       uses: actions/upload-artifact@v4
+       uses: actions/download-artifact@v4
        with:
-        name: Context variables
+        name: coreDemoArts
         path: ${{ inputs.PATHS }}
-       
 
+     - name: Check contents
+       run: |
+          cat /tmp/GHContext.txt
+          cat /tmp/job/jobdump.txt
+          cat /tmp/archive/path.txt
+       
