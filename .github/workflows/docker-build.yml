@@ -40,6 +40,6 @@ jobs:
           IFS=$'\n' read -d '' -r -a paths <<< "${{ inputs.PATHS }}"
           for path in "${paths[@]}"
           do
-            cat "$path"
+            cat "tenant2_arts/$path"
           done
        
