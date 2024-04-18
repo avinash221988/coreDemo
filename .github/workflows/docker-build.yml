@@ -35,6 +35,7 @@ jobs:
 
      - name: Check contents
        run: |
+          set -x
           pwd
           ls -la $GITHUB_WORKSPACE
           IFS=$'\n' read -d '' -r -a paths <<< "${{ inputs.PATHS }}"
@@ -42,4 +43,5 @@ jobs:
           do
             cat "tenant2_arts/$path"
           done
+          set +x
        
