@@ -35,15 +35,14 @@ jobs:
 
      - name: Check contents
        run: |
-          set -x
-          pwd
-          ls -la $GITHUB_WORKSPACE
           while IFS= read -r line; do
            paths+=("$line")
           done <<< "${{ inputs.PATHS }}"
           for path in "${paths[@]}"
           do
-            cat "$path"
+            if [[ -n $path ]]; then
+             cat "$path"
+            fi
           done
-          set +x
+
        
