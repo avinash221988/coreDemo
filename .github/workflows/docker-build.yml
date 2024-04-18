@@ -46,7 +46,7 @@ jobs:
        run: echo "$JOB_CONTEXT"  >> dump.txt
 
      - name: Check ARchive paths
-       run: echo ${{ inputs.PATHS }}
+       run: echo "${{ inputs.PATHS }}"
        
      - name: Archive artifacts
        uses: actions/upload-artifact@v4
