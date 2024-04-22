@@ -25,6 +25,7 @@ jobs:
           $GITHUB_CONTEXT: ${{ toJson(job) }}
        run: |
           echo "$GITHUB_CONTEXT"
+          echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           
      # - name: PrintEnvVars
      #   run: |
