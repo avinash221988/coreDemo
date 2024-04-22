@@ -20,29 +20,35 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-     - name: PrintEnvVars
+     - name: Dump job context
+       env:
+          $GITHUB_CONTEXT: ${{ toJson(job) }}
        run: |
-          echo "GITHUB_ACTION: ${{ github.action}}"
-          echo "GITHUB_ACTION_PATH: ${{ github.action.path }}"
-          echo "TEST_VAR: ${{ inputs.TEST_VAR }}"
-          echo "TEST_VAR2: $TEST_VAR2"
-          echo "My API_KEY is ${{secrets.TEST_SECRET}}"
+          echo "$GITHUB_CONTEXT"
+          
+     # - name: PrintEnvVars
+     #   run: |
+     #      echo "GITHUB_ACTION: ${{ github.action}}"
+     #      echo "GITHUB_ACTION_PATH: ${{ github.action.path }}"
+     #      echo "TEST_VAR: ${{ inputs.TEST_VAR }}"
+     #      echo "TEST_VAR2: $TEST_VAR2"
+     #      echo "My API_KEY is ${{secrets.TEST_SECRET}}"
                  
-     - name: Archive artifacts
-       uses: actions/download-artifact@v4
-       with:
-        name: tenant2_arts
+     # - name: Archive artifacts
+     #   uses: actions/download-artifact@v4
+     #   with:
+     #    name: tenant2_arts
 
-     - name: Check contents
-       run: |
-          while IFS= read -r line; do
-           paths+=("$line")
-          done <<< "${{ inputs.PATHS }}"
-          for path in "${paths[@]}"
-          do
-            if [[ -n $path ]]; then
-             cat "$path"
-            fi
-          done
+     # - name: Check contents
+     #   run: |
+     #      while IFS= read -r line; do
+     #       paths+=("$line")
+     #      done <<< "${{ inputs.PATHS }}"
+     #      for path in "${paths[@]}"
+     #      do
+     #        if [[ -n $path ]]; then
+     #         cat "$path"
+     #        fi
+     #      done
 
        
